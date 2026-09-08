@@ -6,6 +6,7 @@ Language detection
 
 # pylint:disable=unused-argument
 from typing import Sequence
+import re
 
 FreqDictType = dict[str, float]
 "Frequency dictionary. Contains pairs of token and its frequency."
@@ -26,6 +27,14 @@ def tokenize(text: str) -> Sequence[str] | None:
         Sequence[str] | None: Sequence of lower-cased tokens without punctuation.
         Returns None if input text is not a string.
     """
+    if not isinstance(text, str):
+        return None
+
+    cleaned = re.sub(r"[^A-Za-z0-9\s]", " ", text)
+
+    tokens = [token.lower() for token in cleaned.split() if token]
+
+    return tokens
 
 
 def remove_stop_words(tokens: Sequence[str], stop_words: Sequence[str]) -> Sequence[str] | None:
