@@ -1,2 +1,1 @@
-git+https://github.com/fipl-hse/quality-control.git@ddf7901
-spacy==3.8.7
+git+https://github.com/fipl-hse/quality-control.git@dd76cc2

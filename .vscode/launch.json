@@ -78,5 +78,25 @@
                 "PYTHONPATH": "${workspaceFolder}"
             }
         },
+        {
+            "name": "[SEMINAR 1] Learn debug",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "seminars/listing_1_run_debug.py",
+            "console": "integratedTerminal",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            }
+        },
+        {
+            "name": "[SEMINAR 2] Learn integeres",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "seminars/listing_2_integers.py",
+            "console": "integratedTerminal",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            }
+        },
     ]
 }
