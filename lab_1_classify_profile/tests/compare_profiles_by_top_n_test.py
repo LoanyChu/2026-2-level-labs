@@ -2,7 +2,8 @@
 Checks the first lab language comparison function
 """
 
-# pylint: disable=duplicate-code
+# pylint: disable=duplicate-code,assignment-from-no-return
+
 import pytest
 from pytest import MonkeyPatch
 

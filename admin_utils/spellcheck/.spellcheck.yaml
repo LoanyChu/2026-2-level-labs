@@ -18,7 +18,7 @@ matrix:
       ignores:
       - :matches(code, pre)
   sources:
-  - 'final_project/*.rst'
+  - 'lab*/*.rst'
   default_encoding: utf-8
 
 - name: ru
@@ -40,7 +40,6 @@ matrix:
       - :matches(code, pre)
   sources:
   - 'lab*/*.rst'
-  - 'final_project/*.rst'
   - '*.rst'
   default_encoding: utf-8
 

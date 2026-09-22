@@ -16,6 +16,46 @@
             }
         },
         {
+            "name": "[SEMINAR 2] Learn debug",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "seminars/listing_1_run_debug.py",
+            "console": "integratedTerminal",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            }
+        },
+        {
+            "name": "[SEMINAR 2] Learn int",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "seminars/listing_2_integers.py",
+            "console": "integratedTerminal",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            }
+        },
+        {
+            "name": "[SEMINAR 3] Learn if",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "seminars/listing_3_conditions.py",
+            "console": "integratedTerminal",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            }
+        },
+        {
+            "name": "[SEMINAR 3] Learn str",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "seminars/listing_4_strings.py",
+            "console": "integratedTerminal",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            }
+        },
+        {
             "name": "[ADMIN] Run tests",
             "type": "debugpy",
             "request": "launch",
@@ -77,26 +117,6 @@
             "env": {
                 "PYTHONPATH": "${workspaceFolder}"
             }
-        },
-        {
-            "name": "[SEMINAR 1] Learn debug",
-            "type": "debugpy",
-            "request": "launch",
-            "program": "seminars/listing_1_run_debug.py",
-            "console": "integratedTerminal",
-            "env": {
-                "PYTHONPATH": "${workspaceFolder}"
-            }
-        },
-        {
-            "name": "[SEMINAR 2] Learn integeres",
-            "type": "debugpy",
-            "request": "launch",
-            "program": "seminars/listing_2_integers.py",
-            "console": "integratedTerminal",
-            "env": {
-                "PYTHONPATH": "${workspaceFolder}"
-            }
-        },
+        }
     ]
 }

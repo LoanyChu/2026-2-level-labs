@@ -261,7 +261,7 @@ collections, itertools, а также сторонние модули.**
 
 где
 
-- :math:`UnknownProfile` и :math:`LanguangeProfile` — множества токенов
+- :math:`UnknownProfile` и :math:`LanguageProfile` — множества токенов
    в профилях неизвестного и известного языковых профилей;
 - :math:`|UnknownProfile \cap LanguageProfile|` — размер пересечения множеств
    :math:`UnknownProfile` и :math:`LanguageProfile`;

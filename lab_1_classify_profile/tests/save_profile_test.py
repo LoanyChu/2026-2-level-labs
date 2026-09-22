@@ -2,7 +2,8 @@
 Checks the first profile saving function
 """
 
-# pylint: disable=duplicate-code
+# pylint: disable=duplicate-code,assignment-from-no-return
+
 import json
 import shutil
 from pathlib import Path
