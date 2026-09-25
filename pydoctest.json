@@ -8,7 +8,7 @@
         "venv/**/*.py",
         "venv\\**\\*.py",
         "**/.*/**/*.py",
-        "**/nmt_demo/main.py",
+        "**/nmt_demo/demo.py",
         "lab_2_tokenize_by_bpe/helpers.py"
     ],
     "fail_on_missing_docstring": true,

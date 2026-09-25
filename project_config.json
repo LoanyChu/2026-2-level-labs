@@ -7,6 +7,22 @@
                 "main.py",
                 "start.py"
             ]
+        },
+        {
+            "name": "lab_2_tokenize_by_bpe",
+            "coverage": 100,
+            "stubs": [
+                "main.py",
+                "start.py"
+            ]
+        },
+        {
+            "name": "lab_3_generate_by_ngrams",
+            "coverage": 99,
+            "stubs": [
+                "main.py",
+                "start.py"
+            ]
         }
     ],
     "addons": [

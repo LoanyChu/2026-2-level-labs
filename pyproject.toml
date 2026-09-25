@@ -5,6 +5,8 @@ markers = [
     "mark8: tests for level 8",
     "mark10: tests for level 10",
     "lab_1_classify_profile: tests for lab 1",
+    "lab_2_tokenize_by_bpe: tests for lab 2",
+    "lab_3_generate_by_ngrams: tests for lab 3",
 ]
 norecursedirs = [
     "venv*"
@@ -72,6 +74,8 @@ force_alphabetical_sort_within_sections = true
 src_paths = [
     "admin_utils",
     "lab_1_classify_profile",
+    "lab_2_tokenize_by_bpe",
+    "lab_3_generate_by_ngrams",
 ]
 
 [tool.mypy]
@@ -139,6 +143,13 @@ disable_error_code = [
 ]
 
 [[tool.mypy.overrides]]
+module = ['*.nmt_demo.*', ]
+disable_error_code = [
+    'no-any-unimported',
+    'no-any-return'
+]
+
+[[tool.mypy.overrides]]
 module = ['memory_profiler', 'ghapi.all', 'ast_comments', 'pydantic', 'transformers']
 ignore_missing_imports = true
 
@@ -161,6 +172,14 @@ formatter = "formatter"
 [tool.logging.formatters.formatter]
 class = "logging.Formatter"
 format = "%(asctime)s %(name)s: %(message)s"
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+
+[tool.ruff.lint]
+select = []
+ignore = ["ALL"]
 
 [tool.pylint.main]
 # Analyse import fallback blocks. This can be used to support both Python 2 and 3
