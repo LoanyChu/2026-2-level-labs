@@ -1,1 +1,1 @@
-git+https://github.com/fipl-hse/quality-control.git@a5c7bad
+https://github.com/fipl-hse/quality-control/releases/download/v0.3.1/fiplconfig-0.3.1-py3-none-any.whl

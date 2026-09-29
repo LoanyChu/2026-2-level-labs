@@ -18,8 +18,8 @@ def setup() -> tuple:
     Returns:
         tuple: Correct and incorrect data paths.
     """
-    vocabulary_path = str(Path(__file__).parent / "vocabulary.json")
-    path_to_invalid_vocabulary = str(Path(__file__).parent / "invalid_vocabulary.json")
+    vocabulary_path = str(Path(__file__).parent / "assets" / "vocabulary.json")
+    path_to_invalid_vocabulary = str(Path(__file__).parent / "assets" / "invalid_vocabulary.json")
 
     return vocabulary_path, path_to_invalid_vocabulary
 

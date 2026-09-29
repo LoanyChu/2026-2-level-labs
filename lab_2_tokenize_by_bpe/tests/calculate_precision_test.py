@@ -2,6 +2,7 @@
 """
 Checks the second lab's calculate precision function
 """
+
 # pylint: disable=assignment-from-no-return
 import pytest
 

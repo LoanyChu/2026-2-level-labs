@@ -19,10 +19,10 @@ def setup() -> tuple:
     Returns:
         tuple: Correct data tuple.
     """
-    path_to_tests_directory = Path(__file__).parent
-    with open(path_to_tests_directory / "vocabulary.json", "r", encoding="utf-8") as json_file:
+    path_to_assets = Path(__file__).parent / "assets"
+    with open(path_to_assets / "vocabulary.json", "r", encoding="utf-8") as json_file:
         vocabulary = json.load(json_file)
-    with open(path_to_tests_directory / "encoded_text.json", "r", encoding="utf-8") as json_file:
+    with open(path_to_assets / "encoded_text.json", "r", encoding="utf-8") as json_file:
         loaded_dict = json.load(json_file)
         encoded_ideal = loaded_dict["ideal_encoded_text"]
         encoded_with_unk = loaded_dict["encoded_text_with_unk"]

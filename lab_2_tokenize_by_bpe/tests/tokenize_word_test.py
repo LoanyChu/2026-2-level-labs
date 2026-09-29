@@ -16,8 +16,8 @@ def setup() -> tuple:
     """
     Setup for test
     """
-    path_to_tests_directory = Path(__file__).parent
-    with open(path_to_tests_directory / "vocabulary.json", "r", encoding="utf-8") as json_file:
+    path_to_assets = Path(__file__).parent / "assets"
+    with open(path_to_assets / "vocabulary.json", "r", encoding="utf-8") as json_file:
         vocabulary = json.load(json_file)
 
     ideal_word = ("а", "л", "ь", "б", "а", "т", "р", "о", "с", "ы", "</s>")

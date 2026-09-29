@@ -12,7 +12,7 @@ def prepare_word(
     raw_word: str, start_of_word: str | None, end_of_word: str | None
 ) -> tuple[str, ...] | None:
     """
-    Tokenize word into unigrams and append end-of-word token.
+    Tokenize a word into characters and attach optional boundary tokens.
 
     Args:
         raw_word (str): Original word
@@ -68,7 +68,7 @@ def merge_tokens(
     word_frequencies: dict[tuple[str, ...], int], pair: tuple[str, str]
 ) -> dict[tuple[str, ...], int] | None:
     """
-    Update word frequency dictionary by replacing a pair of token with a merged one.
+    Update word frequency dictionary by replacing a pair of tokens with a merged one.
 
     Args:
         word_frequencies (dict[tuple[str, ...], int]): A dictionary where
@@ -161,6 +161,20 @@ def tokenize_word(
     """
 
 
+def load_vocabulary(vocab_path: str) -> dict[str, int] | None:
+    """
+    Read and retrieve dictionary of type <token: identifier>.
+
+    Args:
+        vocab_path (str): A path to the saved vocabulary
+
+    Returns:
+        dict[str, int] | None: A dictionary where key - token, value - identifier
+
+    In case of corrupt input arguments, None is returned
+    """
+
+
 def encode(
     original_text: str,
     vocabulary: dict[str, int] | None,
@@ -169,7 +183,7 @@ def encode(
     unknown_token: str,
 ) -> list[int] | None:
     """
-    Translate decoded sequence into encoded one.
+    Translate original text into a sequence of token identifiers.
 
     Args:
         original_text (str): Original text
@@ -183,20 +197,6 @@ def encode(
 
     In case of corrupt input arguments or functions used return None,
     None is returned
-    """
-
-
-def load_vocabulary(vocab_path: str) -> dict[str, int] | None:
-    """
-    Read and retrieve dictionary of type <token: identifier>.
-
-    Args:
-        vocab_path (str): A path to the saved vocabulary
-
-    Returns:
-        dict[str, int] | None: A dictionary where key - token, value - identifier
-
-    In case of corrupt input arguments, None is returned
     """
 
 
