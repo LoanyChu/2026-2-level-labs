@@ -81,7 +81,48 @@
         "\\.udpipe$",
         "\\.zip$"
     ],
-    "doc_sync_config": [],
+    "doc_sync_config": [
+        {
+            "source": "README.rst",
+            "target": "source/docs/labs_2026/general_info.rst"
+        },
+        {
+            "source": "lab_1_classify_profile/__init__.py",
+            "target": "lab_1_classify_profile/__init__.py"
+        },
+        {
+            "source": "lab_1_classify_profile/main_stub.py",
+            "target": "lab_1_classify_profile/main.py"
+        },
+        {
+            "source": "lab_1_classify_profile/README.rst",
+            "target": "source/docs/labs_2026/labs/lab_1_classify_profile/lab_1.rst"
+        },
+        {
+            "source": "lab_1_classify_profile/lab_1_classify_profile.api.rst",
+            "target": "source/docs/labs_2026/labs/lab_1_classify_profile/lab_1_classify_profile.api.rst"
+        },
+        {
+            "source": "lab_1_classify_profile/assets/description.png",
+            "target": "source/docs/labs_2026/labs/lab_1_classify_profile/assets/description.png"
+        },
+        {
+            "source": "lab_2_tokenize_by_bpe/__init__.py",
+            "target": "lab_2_tokenize_by_bpe/__init__.py"
+        },
+        {
+            "source": "lab_2_tokenize_by_bpe/main_stub.py",
+            "target": "lab_2_tokenize_by_bpe/main.py"
+        },
+        {
+            "source": "lab_2_tokenize_by_bpe/README.rst",
+            "target": "source/docs/labs_2026/labs/lab_2_tokenize_by_bpe/lab_2.rst"
+        },
+        {
+            "source": "lab_2_tokenize_by_bpe/lab_2_tokenize_by_bpe.api.rst",
+            "target": "source/docs/labs_2026/labs/lab_2_tokenize_by_bpe/lab_2_tokenize_by_bpe.api.rst"
+        }
+    ],
     "prohibited_modules": [
         "collections",
         "itertools",

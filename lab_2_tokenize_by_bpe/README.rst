@@ -5,9 +5,8 @@
 .. toctree::
     :maxdepth: 1
     :titlesonly:
-    :caption: Full API
 
-    lab_2_tokenize_by_bpe.api.rst
+    Full API <lab_2_tokenize_by_bpe.api.rst>
 
 
 Дано
@@ -15,11 +14,11 @@
 
 1. Текст на русском языке (``assets/text.txt``), который
    загружен и сохранен в переменную ``text`` в ``start.py``.
-2. Секретный зашифрованный текст.
+2. Секретные зашифрованные тексты.
 3. Обученный на большом корпусе текстов словарь
    токенов ``assets/vocab.json``.
 4. Нейросетевая языковая модель ``assets/nmt_demo`` (пример
-   обращения — ``assets/nmt_demo/demo.py``)
+   обращения — ``assets/nmt_demo/demo.py``).
 
 В ходе выполнения лабораторной работы Вы научитесь
 предобрабатывать текст при помощи алгоритма `Byte-Pair
@@ -70,8 +69,7 @@ Processing, NLP) является формализация языка таким
    в таком случае получается достаточно большим.
 2. Даже при таком очень большом словаре нередко
    приходится сталкиваться с проблемой
-   `Out-of-Vocabulary <https://blog.marketmuse.com/glossary/out-of-vocabulary-oov-definition/>`__
-   .
+   `Out-of-Vocabulary <https://blog.marketmuse.com/glossary/out-of-vocabulary-oov-definition/>`__.
 
 Это не позволяет сделать обработку универсальной и масштабируемой
 на большое количество дискурсов.
@@ -211,8 +209,8 @@ Processing, NLP) является формализация языка таким
 Шаг 0. Начать работу над лабораторной (вместе с преподавателем на практике)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Измените файлы ``main.py`` и ``start.py``
-2. Закоммитьте изменения и создайте новый Pull Request
+1. Измените файлы ``main.py`` и ``start.py``.
+2. Закоммитьте изменения и создайте новый Pull Request.
 
 .. important:: Код, выполняющий все требуемые действия, должен быть написан в
                функции ``main`` в модуле ``start.py``.
@@ -715,13 +713,12 @@ n-грамм порядка :math:`i`, причем :math:`i` принимает
 ---------------
 
 -  `Статья о BPE
-   алгоритме <https://psv4.userapi.com/s/v1/d2/svojheKI6rmlVj29RNbbAWAFVmJLG7FVQ1i0SJt7rElzDcbqUYuUqzZtRzCECD7oSNLliq5uiPhkYA_gb8jVOgFVSQhfCKyIKniJcSNo2DRh5OrcZrUud-82h0pxgU4uX0NVm1lsbArl/Philip_Gage_-_Novy_algoritm_szhatia_dannykh.pdf>`__
+   алгоритме <https://psv4.userapi.com/s/v1/d2/svojheKI6rmlVj29RNbbAWAFVmJLG7FVQ1i0SJt7rElzDcbqUYuUqzZtRzCECD7oSNLliq5uiPhkYA_gb8jVOgFVSQhfCKyIKniJcSNo2DRh5OrcZrUud-82h0pxgU4uX0NVm1lsbArl/Philip_Gage_-_Novy_algoritm_szhatia_dannykh.pdf>`__.
 -  `Описание формата хранения данных JSON <https://ru.wikipedia.org/wiki/JSON>`__
    и `документация библиотеки <https://pythonworld.ru/moduli/modul-json.html>`__
-   для работы с такими файлами
+   для работы с такими файлами.
 -  `Описание нейросетевой модели <https://huggingface.co/Helsinki-NLP/opus-mt-ru-en>`__,
-   чьи предсказания были использованы в настоящей
-   работе
+   чьи предсказания были использованы в настоящей работе.
 -  `Оригинальная статья о BLEU
    метрике <https://aclanthology.org/P02-1040.pdf>`__, используемой для
-   оценки качества машинного перевода
+   оценки качества машинного перевода.

@@ -11,7 +11,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  REPOSITORY_TYPE: admin
+  REPOSITORY_TYPE: public
 
 jobs:
   install-dependencies:

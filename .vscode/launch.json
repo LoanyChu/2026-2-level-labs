@@ -68,10 +68,50 @@
             }
         },
         {
-            "name": "[SEMINAR 3] Learn str",
+            "name": "[SEMINAR 4] Learn str",
             "type": "debugpy",
             "request": "launch",
             "program": "seminars/listing_4_strings.py",
+            "console": "integratedTerminal",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            }
+        },
+        {
+            "name": "[SEMINAR 5] Learn list",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "seminars/listing_5_lists.py",
+            "console": "integratedTerminal",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            }
+        },
+        {
+            "name": "[SEMINAR 5] Learn dict",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "seminars/listing_6_dicts.py",
+            "console": "integratedTerminal",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            }
+        },
+        {
+            "name": "[SEMINAR 5] Learn sets",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "seminars/listing_7_sets.py",
+            "console": "integratedTerminal",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            }
+        },
+        {
+            "name": "[SEMINAR 6] Learn functions",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "seminars/listing_8_functions.py",
             "console": "integratedTerminal",
             "env": {
                 "PYTHONPATH": "${workspaceFolder}"
