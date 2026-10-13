@@ -2,7 +2,6 @@
 Checks the second lab's geo mean function
 """
 
-# pylint: disable=assignment-from-no-return
 import pytest
 
 from lab_2_tokenize_by_bpe.main import calculate_geo_mean

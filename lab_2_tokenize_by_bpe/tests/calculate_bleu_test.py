@@ -2,7 +2,6 @@
 Checks the second lab's calculate blue function
 """
 
-# pylint: disable=assignment-from-no-return
 from unittest import mock
 
 import pytest

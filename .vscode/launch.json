@@ -118,6 +118,26 @@
             }
         },
         {
+            "name": "[SEMINAR 6] Learn LEGB",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "seminars/listing_9_legb.py",
+            "console": "integratedTerminal",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            }
+        },
+        {
+            "name": "[SEMINAR 7] Learn classes",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "seminars/listing_10_classes.py",
+            "console": "integratedTerminal",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            }
+        },
+        {
             "name": "[ADMIN] Run tests",
             "type": "debugpy",
             "request": "launch",

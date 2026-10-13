@@ -2,7 +2,7 @@
 Checks the second lab's load vocabulary function
 """
 
-# pylint: disable=redefined-outer-name, assignment-from-no-return
+# pylint: disable=redefined-outer-name
 from pathlib import Path
 
 import pytest

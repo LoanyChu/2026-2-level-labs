@@ -2,8 +2,6 @@
 Checks the first lab language profile collection function
 """
 
-# pylint: disable=assignment-from-no-return
-
 from pathlib import Path
 
 import pytest

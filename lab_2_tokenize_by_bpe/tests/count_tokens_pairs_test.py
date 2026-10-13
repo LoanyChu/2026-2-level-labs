@@ -2,7 +2,7 @@
 Checks the second lab's count tokens pairs function
 """
 
-# pylint: disable=redefined-outer-name, assignment-from-no-return
+# pylint: disable=redefined-outer-name
 import pytest
 
 from lab_2_tokenize_by_bpe.main import collect_frequencies, count_tokens_pairs

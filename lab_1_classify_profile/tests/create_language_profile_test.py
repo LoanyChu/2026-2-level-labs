@@ -2,8 +2,6 @@
 Checks the first lab language profile creation function
 """
 
-# pylint: disable=assignment-from-no-return
-
 import pytest
 from pytest import MonkeyPatch
 

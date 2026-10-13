@@ -18,7 +18,7 @@
         },
         {
             "name": "lab_3_generate_by_ngrams",
-            "coverage": 99,
+            "coverage": 100,
             "stubs": [
                 "main.py",
                 "start.py"

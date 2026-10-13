@@ -2,8 +2,6 @@
 Checks the first lab calculation of the mean squared error function
 """
 
-# pylint: disable=assignment-from-no-return
-
 import pytest
 
 from admin_utils.constants import FLOAT_TOLERANCE

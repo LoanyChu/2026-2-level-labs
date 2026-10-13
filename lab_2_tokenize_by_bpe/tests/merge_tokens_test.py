@@ -2,7 +2,7 @@
 Checks the second lab's merge tokens function
 """
 
-# pylint: disable=redefined-outer-name, assignment-from-no-return
+# pylint: disable=redefined-outer-name
 import pytest
 
 from lab_2_tokenize_by_bpe.main import merge_tokens
@@ -64,6 +64,57 @@ def test_merge_tokens_ideal(setup: tuple) -> None:
     }
     actual = merge_tokens(word_frequencies, pair)
     assert expected == actual
+
+
+@pytest.mark.lab_2_tokenize_by_bpe
+@pytest.mark.mark6
+def test_merge_tokens_repeating_tokens() -> None:
+    """
+    Check merge_tokens when a target token repeats consecutively in a word.
+    """
+    word_frequencies = {("к", "о", "о", "р", "д", "и", "н", "а", "ц", "и", "я", "</s>"): 1}
+    pair = ("о", "о")
+    expected = {("к", "оо", "р", "д", "и", "н", "а", "ц", "и", "я", "</s>"): 1}
+    actual = merge_tokens(word_frequencies, pair)
+    assert actual == expected
+
+
+@pytest.mark.lab_2_tokenize_by_bpe
+@pytest.mark.mark6
+def test_merge_tokens_overlapping() -> None:
+    """
+    Check merge_tokens when identical tokens overlap consecutively in a word.
+    """
+    word_frequencies = {("д", "л", "и", "н", "н", "о", "ш", "е", "е", "е", "</s>"): 1}
+    pair = ("е", "е")
+    expected = {("д", "л", "и", "н", "н", "о", "ш", "ее", "е", "</s>"): 1}
+    actual = merge_tokens(word_frequencies, pair)
+    assert actual == expected
+
+
+@pytest.mark.lab_2_tokenize_by_bpe
+@pytest.mark.mark6
+def test_merge_tokens_multiple_occurrences() -> None:
+    """
+    Check merge_tokens when a target pair occurs multiple times in one word.
+    """
+    word_frequencies = {("а", "б", "в", "а", "б", "</s>"): 3}
+    pair = ("а", "б")
+    expected = {("аб", "в", "аб", "</s>"): 3}
+    actual = merge_tokens(word_frequencies, pair)
+    assert actual == expected
+
+
+@pytest.mark.lab_2_tokenize_by_bpe
+@pytest.mark.mark6
+def test_merge_tokens_empty_and_no_match() -> None:
+    """
+    In-depth check for empty frequencies or when the pair is not in the text.
+    """
+    assert merge_tokens({}, ("а", "б")) == {}
+
+    word_frequencies = {("к", "о", "т", "</s>"): 1}
+    assert merge_tokens(word_frequencies, ("а", "б")) == word_frequencies
 
 
 @pytest.mark.lab_2_tokenize_by_bpe

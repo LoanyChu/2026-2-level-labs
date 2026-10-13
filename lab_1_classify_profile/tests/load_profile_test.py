@@ -2,8 +2,6 @@
 Checks the first lab profile loading function
 """
 
-# pylint: disable=assignment-from-no-return
-
 import json
 from pathlib import Path
 

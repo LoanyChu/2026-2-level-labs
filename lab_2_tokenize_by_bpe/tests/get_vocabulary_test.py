@@ -2,7 +2,7 @@
 Checks the second lab's get vocabulary function
 """
 
-# pylint: disable=redefined-outer-name, assignment-from-no-return
+# pylint: disable=redefined-outer-name
 import pytest
 
 from lab_2_tokenize_by_bpe.main import get_vocabulary

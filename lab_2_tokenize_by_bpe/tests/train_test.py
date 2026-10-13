@@ -2,7 +2,7 @@
 Checks the second lab's train function
 """
 
-# pylint: disable=redefined-outer-name, assignment-from-no-return
+# pylint: disable=redefined-outer-name
 from unittest import mock
 
 import pytest

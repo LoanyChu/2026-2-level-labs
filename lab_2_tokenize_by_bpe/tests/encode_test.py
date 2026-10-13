@@ -2,7 +2,7 @@
 Checks the second lab's encode function
 """
 
-# pylint: disable=redefined-outer-name, assignment-from-no-return
+# pylint: disable=redefined-outer-name
 import json
 from pathlib import Path
 from unittest import mock
