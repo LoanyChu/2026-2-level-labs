@@ -1,0 +1,4 @@
+sacremoses==0.2.0
+sentencepiece==0.2.2
+torch==2.9.1
+transformers==4.50.3
