@@ -17,9 +17,9 @@ ProfileType = tuple[str, FreqDictType, int]
 def tokenize(text: str) -> Sequence[str] | None:
     """
     Splits a text into tokens, converts the tokens into lowercase,
-    removes punctuation and other symbols from words
+    remov es punctuation and other symbols from words
 
-    Ar  gs:
+    Ar gs:
        text (str): Text
 
     Returns:
