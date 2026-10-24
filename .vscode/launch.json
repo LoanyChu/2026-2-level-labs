@@ -38,6 +38,17 @@
             }
         },
         {
+            "name": "[LAB 4] Start",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "start.py",
+            "cwd": "${workspaceFolder}/lab_4_summarization_textrank",
+            "console": "integratedTerminal",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            }
+        },
+        {
             "name": "[SEMINAR 2] Learn debug",
             "type": "debugpy",
             "request": "launch",
@@ -132,6 +143,26 @@
             "type": "debugpy",
             "request": "launch",
             "program": "seminars/listing_10_classes.py",
+            "console": "integratedTerminal",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            }
+        },
+        {
+            "name": "[SEMINAR 7] Learn encapsulation",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "seminars/listing_11_encapsulation.py",
+            "console": "integratedTerminal",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            }
+        },
+        {
+            "name": "[SEMINAR 8] Learn tic-tac-toe",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "seminars/listing_12_tictactoe.py",
             "console": "integratedTerminal",
             "env": {
                 "PYTHONPATH": "${workspaceFolder}"

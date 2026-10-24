@@ -23,6 +23,14 @@
                 "main.py",
                 "start.py"
             ]
+        },
+        {
+            "name": "lab_4_summarization_textrank",
+            "coverage": 90,
+            "stubs": [
+                "main.py",
+                "start.py"
+            ]
         }
     ],
     "addons": [
@@ -121,6 +129,30 @@
         {
             "source": "lab_2_tokenize_by_bpe/lab_2_tokenize_by_bpe.api.rst",
             "target": "source/docs/labs_2026/labs/lab_2_tokenize_by_bpe/lab_2_tokenize_by_bpe.api.rst"
+        },
+        {
+            "source": "lab_3_generate_by_ngrams/__init__.py",
+            "target": "lab_3_generate_by_ngrams/__init__.py"
+        },
+        {
+            "source": "lab_3_generate_by_ngrams/main_stub.py",
+            "target": "lab_3_generate_by_ngrams/main.py"
+        },
+        {
+            "source": "lab_3_generate_by_ngrams/README.rst",
+            "target": "source/docs/labs_2026/labs/lab_3_generate_by_ngrams/lab_3.rst"
+        },
+        {
+            "source": "lab_3_generate_by_ngrams/lab_3_generate_by_ngrams.api.rst",
+            "target": "source/docs/labs_2026/labs/lab_3_generate_by_ngrams/lab_3_generate_by_ngrams.api.rst"
+        },
+        {
+            "source": "lab_3_generate_by_ngrams/assets/description.png",
+            "target": "source/docs/labs_2026/labs/lab_3_generate_by_ngrams/assets/description.png"
+        },
+        {
+            "source": "lab_3_generate_by_ngrams/assets/beam_search_example.png",
+            "target": "source/docs/labs_2026/labs/lab_3_generate_by_ngrams/assets/beam_search_example.png"
         }
     ],
     "prohibited_modules": [

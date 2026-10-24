@@ -33,6 +33,8 @@ intersphinx_mapping = {
 nitpick_ignore = [
     ("py:class", "ProfileType"),
     ("py:class", "optional"),
+    ("py:class", "EncodedSentence"),
+    ("py:class", "PreprocessedSentence"),
 ]
 
 exclude_patterns = ["venv/*"]
@@ -40,3 +42,5 @@ exclude_patterns = ["venv/*"]
 language = "en"
 
 html_theme = "sphinx_rtd_theme"
+
+suppress_warnings = ["autodoc.duplicate_declaration"]

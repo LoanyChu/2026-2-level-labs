@@ -7,6 +7,8 @@ markers = [
     "lab_1_classify_profile: tests for lab 1",
     "lab_2_tokenize_by_bpe: tests for lab 2",
     "lab_3_generate_by_ngrams: tests for lab 3",
+    "lab_4_summarization_textrank: tests for lab 4",
+    "core_utils: all checks for the core utils",
 ]
 norecursedirs = [
     "venv*"
@@ -76,6 +78,7 @@ src_paths = [
     "lab_1_classify_profile",
     "lab_2_tokenize_by_bpe",
     "lab_3_generate_by_ngrams",
+    "lab_4_summarization_textrank",
 ]
 
 [tool.mypy]
