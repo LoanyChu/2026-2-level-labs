@@ -8,6 +8,7 @@ if [[ "$1" == "smoke" ]]; then
     "lab_1_classify_profile"
     "lab_2_tokenize_by_bpe"
     "lab_3_generate_by_ngrams"
+    "lab_4_summarization_textrank"
   )
 else
   DIRS_TO_CHECK=(
@@ -16,6 +17,7 @@ else
     "lab_1_classify_profile"
     "lab_2_tokenize_by_bpe"
     "lab_3_generate_by_ngrams"
+    "lab_4_summarization_textrank"
   )
 fi
 

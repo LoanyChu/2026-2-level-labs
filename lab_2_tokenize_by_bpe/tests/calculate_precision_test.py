@@ -117,15 +117,37 @@ def test_calculate_precision_ideal(actual_ngrams: list, reference_ngrams: list) 
 
 @pytest.mark.lab_2_tokenize_by_bpe
 @pytest.mark.mark10
-def test_calculate_precision_missing_value(reference_ngrams: list) -> None:
+@pytest.mark.parametrize("empty_actual", [[], ()])
+def test_calculate_precision_missing_value(
+    empty_actual: list | tuple, reference_ngrams: list
+) -> None:
     """
-    Calculate precision missing value check.
+    Empty actual value scenario.
 
     Args:
+        empty_actual (list | tuple): Empty actual n-grams.
         reference_ngrams (list): Prepared test data.
     """
     expected = 0.0
-    actual = calculate_precision([], reference_ngrams)
+    actual = calculate_precision(empty_actual, reference_ngrams)
+    assert expected == actual
+
+
+@pytest.mark.lab_2_tokenize_by_bpe
+@pytest.mark.mark10
+@pytest.mark.parametrize("empty_reference", [[], ()])
+def test_calculate_precision_empty_reference(
+    actual_ngrams: list, empty_reference: list | tuple
+) -> None:
+    """
+    Empty reference value scenario.
+
+    Args:
+        actual_ngrams (list): Prepared test data.
+        empty_reference (list | tuple): Empty reference n-grams.
+    """
+    expected = 0.0
+    actual = calculate_precision(actual_ngrams, empty_reference)
     assert expected == actual
 
 
@@ -139,8 +161,8 @@ def test_calculate_precision_bad_input(actual_ngrams: list, reference_ngrams: li
         actual_ngrams (list): Prepared test data.
         reference_ngrams (list): Prepared test data.
     """
-    actual_ngrams_bad_input = [(), "string", {}, None, 1, 1.1, True]
-    reference_ngrams_bad_input = [None, (), 1.1, True, 1, "string", {}]
+    actual_ngrams_bad_input = ["string", {}, None, 1, 1.1, True]
+    reference_ngrams_bad_input = [None, 1.1, True, 1, "string", {}]
     expected = None
     for index, bad_input in enumerate(actual_ngrams_bad_input):
         actual = calculate_precision(bad_input, reference_ngrams)
