@@ -16,7 +16,7 @@ env:
 jobs:
   install-dependencies:
     name: Installing dependencies
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 4
 
     steps:
@@ -29,7 +29,7 @@ jobs:
 
   pr-name-check:
     name: PR name check
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     if: github.event_name == 'pull_request'
     timeout-minutes: 4
     needs: [ install-dependencies ]
@@ -49,7 +49,7 @@ jobs:
 
   code-style:
     name: Code Style
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 4
     needs: [ install-dependencies ]
     env:
@@ -68,7 +68,7 @@ jobs:
 
   mypy-checks:
     name: Mypy checks
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 4
     needs: [ install-dependencies ]
 
@@ -84,7 +84,7 @@ jobs:
 
   unittests:
     name: Unittests
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 7
     needs: [ install-dependencies ]
     env:
@@ -103,7 +103,7 @@ jobs:
 
   start:
     name: Check start.py
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 12
     needs: [ install-dependencies ]
     env:
@@ -121,7 +121,7 @@ jobs:
 
   flake8-checks:
     name: Import style checks
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 4
     needs: [ install-dependencies ]
 
