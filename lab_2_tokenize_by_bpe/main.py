@@ -4,7 +4,7 @@ Lab 2.
 BPE and machine translation evaluation
 """
 
-# pylint:disable=unused-argument, too-many-return-statements, too-many-branches
+# pylint:disable=unused-argument, too-many-return-statements, too-many-branches, line-too-long
 from typing import Sequence
 
 
