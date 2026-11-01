@@ -4,7 +4,7 @@ Lab 2.
 BPE and machine translation evaluation
 """
 
-# pylint:disable=unused-argument
+# pylint:disable=unused-argument, too-many-return-statements, too-many-branches
 from typing import Sequence
 
 
@@ -24,11 +24,7 @@ def prepare_word(
 
     In case of corrupt input arguments, None is returned
     """
-    if not isinstance(raw_word, str):
-        return None
-    if start_of_word is not None and not isinstance(start_of_word, str):
-        return None
-    if end_of_word is not None and not isinstance(end_of_word, str):
+    if not isinstance(raw_word, str) or (start_of_word is not None and not isinstance(start_of_word, str)) or (end_of_word is not None and not isinstance(end_of_word, str)):
         return None
 
     result = []
@@ -61,11 +57,7 @@ def collect_frequencies(
     In case of corrupt input arguments or functions used return None,
     None is returned
     """
-    if not isinstance(text, str):
-        return None
-    if start_of_word is not None and not isinstance(start_of_word, str):
-        return None
-    if end_of_word is not None and not isinstance(end_of_word, str):
+    if not isinstance(raw_word, str) or (start_of_word is not None and not isinstance(start_of_word, str)) or (end_of_word is not None and not isinstance(end_of_word, str)):
         return None
 
     counts = {}
@@ -139,11 +131,7 @@ def merge_tokens(
 
     In case of corrupt input arguments, None is returned
     """
-    if not isinstance(word_frequencies, dict):
-        return None
-    if not isinstance(pair, tuple) or len(pair) != 2:
-        return None
-    if not isinstance(pair[0], str) or not isinstance(pair[1], str):
+    if not isinstance(word_frequencies, dict) or (not isinstance(pair, tuple) or len(pair) != 2) or (not isinstance(pair[0], str) or not isinstance(pair[1], str)):
         return None
 
     for key, value in word_frequencies.items():
@@ -197,9 +185,7 @@ def train(
     In case of corrupt input arguments or functions used return None,
     None is returned
     """
-    if not isinstance(word_frequencies, dict):
-        return None
-    if not isinstance(num_merges, int) or isinstance(num_merges, bool) or num_merges < 0:
+    if not isinstance(word_frequencies, dict) or (not isinstance(num_merges, int) or isinstance(num_merges, bool) or num_merges < 0):
         return None
 
     current = word_frequencies
@@ -238,9 +224,7 @@ def get_vocabulary(
 
     In case of corrupt input arguments, None is returned
     """
-    if not isinstance(word_frequencies, dict):
-        return None
-    if not isinstance(unknown_token, str):
+    if not isinstance(word_frequencies, dict) or (not isinstance(unknown_token, str)):
         return None
 
     for key, value in word_frequencies.items():
@@ -287,11 +271,7 @@ def decode(
 
     In case of corrupt input arguments, None is returned
     """
-    if not isinstance(encoded_text, (list, tuple)):
-        return None
-    if not isinstance(vocabulary, dict):
-        return None
-    if end_of_word_token is not None and not isinstance(end_of_word_token, str):
+    if not isinstance(encoded_text, (list, tuple)) or (not isinstance(vocabulary, dict)) or (end_of_word_token is not None and not isinstance(end_of_word_token, str)):
         return None
 
     for token_id in encoded_text:
@@ -348,17 +328,11 @@ def tokenize_word(
     for token in word:
         if not isinstance(token, str):
             return None
-    if not isinstance(vocabulary, dict):
-        return None
-    if end_of_word is not None and not isinstance(end_of_word, str):
-        return None
-    if not isinstance(unknown_token, str):
+    if not isinstance(vocabulary, dict) or (end_of_word is not None and not isinstance(end_of_word, str)) or (not isinstance(unknown_token, str)):
         return None
 
     for key, value in vocabulary.items():
-        if not isinstance(key, str):
-            return None
-        if not isinstance(value, int) or isinstance(value, bool):
+        if not isinstance(key, str) or (not isinstance(value, int) or isinstance(value, bool)):
             return None
 
     if unknown_token not in vocabulary:
@@ -415,7 +389,7 @@ def load_vocabulary(vocab_path: str) -> dict[str, int] | None:
     try:
         with open(vocab_path, "r", encoding="utf-8") as f:
             lines = f.read().splitlines()
-    except Exception:
+    except (OSError, UnicodeDecodeError):
         return None
 
     vocabulary = {}
@@ -625,12 +599,12 @@ def calculate_geo_mean(precisions: Sequence[float], max_order: int) -> float | N
         if value == 0:
             has_zero = True
         else:
-            product *= value
+            product *= float(value)
 
     if has_zero:
         return 0.0
 
-    return product ** (1.0 / max_order)
+    return float(product ** (1.0 / max_order))
 
 
 def calculate_bleu(actual: str | None, reference: str, max_order: int = 3) -> float | None:
@@ -657,7 +631,7 @@ def calculate_bleu(actual: str | None, reference: str, max_order: int = 3) -> fl
     if not isinstance(max_order, int) or isinstance(max_order, bool) or max_order <= 0:
         return None
 
-    precisions = []
+    precisions:list[float]=[]
     for order in range(1, max_order + 1):
         actual_ngrams = collect_ngrams(actual, order)
         reference_ngrams = collect_ngrams(reference, order)
@@ -682,8 +656,8 @@ def calculate_bleu(actual: str | None, reference: str, max_order: int = 3) -> fl
         return 0.0
 
     if actual_len >= reference_len:
-        brevity_penalty = 1.0
+        brevity_penalty:float = 1.0
     else:
-        brevity_penalty = 2.718281828459045 ** (1 - reference_len / actual_len)
+        brevity_penalty = float(2.718281828459045 ** (1 - reference_len / actual_len))
 
     return brevity_penalty * geo_mean * 100
