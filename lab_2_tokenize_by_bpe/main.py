@@ -293,8 +293,6 @@ def decode(
         return None
     if end_of_word_token is not None and not isinstance(end_of_word_token, str):
         return None
-    if start_of_word_token is not None and not isinstance(start_of_word_token, str):
-        return None
 
     for token_id in encoded_text:
         if not isinstance(token_id, int) or isinstance(token_id, bool):
@@ -308,8 +306,6 @@ def decode(
 
     id_to_token = {}
     for token, token_id in vocabulary.items():
-        if token_id in id_to_token:
-            return None
         id_to_token[token_id] = token
 
     result = []
@@ -318,17 +314,13 @@ def decode(
             return None
 
         token = id_to_token[token_id]
-        piece = token
 
-        if start_of_word_token and piece.startswith(start_of_word_token):
-            piece = piece[len(start_of_word_token):]
-
-        if end_of_word_token and piece.endswith(end_of_word_token):
-            piece = piece[:-len(end_of_word_token)]
+        if end_of_word_token is not None and token.endswith(end_of_word_token):
+            piece = token[:-len(end_of_word_token)] if end_of_word_token else token
             result.append(piece)
             result.append(" ")
         else:
-            result.append(piece)
+            result.append(token)
 
     return "".join(result)
 
