@@ -1,6 +1,7 @@
 """
 BPE Tokenizer starter
 """
+import json
 from lab_2_tokenize_by_bpe.main import (
     calculate_bleu,
     decode)
@@ -17,6 +18,8 @@ def main() -> None:
         text_reference_translation = text_file.read()
     with open("lab_2_tokenize_by_bpe/assets/en_encoded.txt", "r", encoding="utf-8") as text_file:
         translation_encoded_raw = text_file.read()
+    with open("lab_2_tokenize_by_bpe/assets/vocab.json", "r", encoding="utf-8") as vocab_file:
+        vocabulary = json.load(vocab_file)
 
     encoded = [int(token) for token in translation_encoded_raw.split()]
 
