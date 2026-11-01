@@ -694,4 +694,4 @@ def calculate_bleu(actual: str | None, reference: str, max_order: int = 3) -> fl
     else:
         brevity_penalty = 2.718281828459045 ** (1 - reference_len / actual_len)
 
-    return brevity_penalty * geo_mean
+    return brevity_penalty * geo_mean * 100
