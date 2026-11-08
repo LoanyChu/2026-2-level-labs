@@ -199,16 +199,18 @@ def train(
         best_pair = min(
             pair_counts.items(),
             key=lambda item: (
-                -item[1],                              # самая частая
-                -(len(item[0][0]) + len(item[0][1])),  # самый длинный слитый токен
-                item[0][0] + item[0][1],               # лексикографически меньший
+                -item[1],
+                -(len(item[0][0]) + len(item[0][1])),
+                item[0][0] + item[0][1],
             ),
         )[0]
 
-        current = merge_tokens(current, best_pair)
-        if current is None:
+        merged = merge_tokens(current, best_pair)
+        if merged is None:
             return None
+        current = merged
     return current
+
 
 
 def get_vocabulary(
@@ -328,30 +330,20 @@ def tokenize_word(
         not isinstance(word, tuple)
         or not all(isinstance(t, str) for t in word)
         or not isinstance(vocabulary, dict)
-    ):
-        return None
-
-    if (
-        (end_of_word is not None and not isinstance(end_of_word, str))
+        or not all(
+            isinstance(t, str) and isinstance(v, int) and not isinstance(v, bool)
+            for t, v in vocabulary.items()
+        )
+        or (end_of_word is not None and not isinstance(end_of_word, str))
         or not isinstance(unknown_token, str)
+        or unknown_token not in vocabulary
     ):
-        return None
-
-    for key, value in vocabulary.items():
-        if (
-            not isinstance(key, str)
-            or not isinstance(value, int)
-            or isinstance(value, bool)
-        ):
-            return None
-
-    if unknown_token not in vocabulary:
         return None
 
     unknown_id = vocabulary[unknown_token]
     word_str = "".join(word)
     consumed = [False] * len(word_str)
-    tokens_found = {}  # позиция -> (длина токена, его id)
+    tokens_found = {}
 
     for token in sorted(vocabulary, key=lambda t: (-len(t), t)):
         if not token:
@@ -359,8 +351,7 @@ def tokenize_word(
         idx = word_str.find(token)
         while idx != -1:
             if not any(consumed[idx : idx + len(token)]):
-                for k in range(idx, idx + len(token)):
-                    consumed[k] = True
+                consumed[idx : idx + len(token)] = [True] * len(token)
                 tokens_found[idx] = (len(token), vocabulary[token])
             idx = word_str.find(token, idx + 1)
 
@@ -371,10 +362,11 @@ def tokenize_word(
             length, token_id = tokens_found[i]
             result.append(token_id)
             i += length
-        else:  # символ, которого нет ни в одном токене — неизвестный
+        else:
             result.append(unknown_id)
             i += 1
     return result
+
 
 
 
@@ -571,8 +563,7 @@ def calculate_geo_mean(
         if value < 0:
             return 0.0
 
-        else:
-            product *= float(value)
+        product *= float(value)
 
     if has_zero:
         return 0.0
