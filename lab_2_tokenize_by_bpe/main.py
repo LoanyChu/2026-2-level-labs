@@ -623,4 +623,4 @@ def calculate_bleu(
             2.718281828459045 ** (1 - reference_len / actual_len)
         )
 
-    return float(brevity_penalty * geo_mean)
+    return float(brevity_penalty * geo_mean * 100)
