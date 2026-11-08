@@ -286,7 +286,6 @@ def decode(
     id_to_token = {token_id: token for token, token_id in vocabulary.items()}
     result = []
     for token_id in encoded_text:
-        # Если ID нет, просто пропускаем (или можно вернуть None, если тест требует)
         if token_id in id_to_token:
             token = id_to_token[token_id]
             if end_of_word_token is not None and token == end_of_word_token:
@@ -554,7 +553,6 @@ def calculate_geo_mean(
     has_zero = False
 
     for value in precisions:
-        # Если есть отрицательное число - сразу None
         if (
             not isinstance(value, (int, float))
             or isinstance(value, bool)
@@ -629,4 +627,3 @@ def calculate_bleu(
         )
 
     return float(brevity_penalty * geo_mean * 100)
-#o
