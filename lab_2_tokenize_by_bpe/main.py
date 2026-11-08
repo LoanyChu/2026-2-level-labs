@@ -320,7 +320,11 @@ def tokenize_word(
         not isinstance(word, tuple)
         or not all(isinstance(t, str) for t in word)
         or not isinstance(vocabulary, dict)
-        or (end_of_word is not None and not isinstance(end_of_word, str))
+    ):
+        return None
+
+    if (
+        (end_of_word is not None and not isinstance(end_of_word, str))
         or not isinstance(unknown_token, str)
     ):
         return None
@@ -567,16 +571,24 @@ def calculate_geo_mean(
 def calculate_bleu(
     actual: str | None, reference: str, max_order: int = 3
 ) -> float | None:
-    """Compare two sequences by virtue of BLEU metric."""
-    if (
-        actual is None
-        or not isinstance(actual, str)
-        or not isinstance(reference, str)
-    ):
-        return None
+    """
+    Compare two sequences by virtue of BLEU metric.
 
+    Args:
+        actual (str | None): Predicted sequence
+        reference (str): Expected sequence
+        max_order (int, optional): Max length of n-gram to consider for comparison. Defaults to 3
+
+    Returns:
+        float | None: A value of BLEU metric
+
+    In case of corrupt input arguments or functions used return None,
+    None is returned
+    """
     if (
-        not isinstance(max_order, int)
+        not isinstance(actual, str)
+        or not isinstance(reference, str)
+        or not isinstance(max_order, int)
         or isinstance(max_order, bool)
         or max_order <= 0
     ):
