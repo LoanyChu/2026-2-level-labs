@@ -1,3 +1,9 @@
+"""
+Lab 2.
+
+BPE and machine translation evaluation
+"""
+
 import json
 from typing import Sequence
 
