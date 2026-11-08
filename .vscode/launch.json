@@ -19,8 +19,8 @@
             "name": "[LAB 2] Start",
             "type": "debugpy",
             "request": "launch",
-            "program": "start.py",
-            "cwd": "${workspaceFolder}/lab_2_tokenize_by_bpe",
+            "program": "lab_2_tokenize_by_bpe/start.py",
+            "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
             "env": {
                 "PYTHONPATH": "${workspaceFolder}"
