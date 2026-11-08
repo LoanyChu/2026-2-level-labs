@@ -328,17 +328,19 @@ def tokenize_word(
     """
     if (
         not isinstance(word, tuple)
-        or not all(isinstance(t, str) for t in word)
         or not isinstance(vocabulary, dict)
-        or not all(
-            isinstance(t, str) and isinstance(v, int) and not isinstance(v, bool)
-            for t, v in vocabulary.items()
-        )
         or (end_of_word is not None and not isinstance(end_of_word, str))
         or not isinstance(unknown_token, str)
         or unknown_token not in vocabulary
     ):
         return None
+
+    if not all(isinstance(t, str) for t in word) or not all(
+        isinstance(t, str) and isinstance(v, int) and not isinstance(v, bool)
+        for t, v in vocabulary.items()
+    ):
+        return None
+
 
     unknown_id = vocabulary[unknown_token]
     word_str = "".join(word)
