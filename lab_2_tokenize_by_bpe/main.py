@@ -9,9 +9,7 @@ from typing import Sequence
 
 # pylint:disable=unused-argument
 
-def prepare_word(
-    raw_word: str, start_of_word: str | None, end_of_word: str | None
-) -> tuple[str, ...] | None:
+def prepare_word(raw_word: str, start_of_word: str | None, end_of_word: str | None) -> tuple[str, ...] | None:
     """
     Tokenize a word into characters and attach optional boundary tokens.
 
@@ -41,9 +39,7 @@ def prepare_word(
     return tuple(result)
 
 
-def collect_frequencies(
-    text: str, start_of_word: str | None, end_of_word: str | None
-) -> dict[tuple[str, ...], int] | None:
+def collect_frequencies(text: str, start_of_word: str | None, end_of_word: str | None) -> dict[tuple[str, ...], int] | None:
     """
     Count number of occurrences of each word.
 
@@ -75,9 +71,7 @@ def collect_frequencies(
     return counts
 
 
-def count_tokens_pairs(
-    word_frequencies: dict[tuple[str, ...], int],
-) -> dict[tuple[str, str], int] | None:
+def count_tokens_pairs(word_frequencies: dict[tuple[str, ...], int],) -> dict[tuple[str, str], int] | None:
     """
     Count number of occurrences of each pair of subsequent tokens.
 
@@ -111,9 +105,7 @@ def count_tokens_pairs(
     return pair_counts
 
 
-def merge_tokens(
-    word_frequencies: dict[tuple[str, ...], int], pair: tuple[str, str]
-) -> dict[tuple[str, ...], int] | None:
+def merge_tokens(word_frequencies: dict[tuple[str, ...], int], pair: tuple[str, str]) -> dict[tuple[str, ...], int] | None:
     """
     Update word frequency dictionary by replacing a pair of tokens with a merged one.
 
@@ -162,9 +154,7 @@ def merge_tokens(
         new_frequencies[new_word] = new_frequencies.get(new_word, 0) + count
     return new_frequencies
 
-def train(
-    word_frequencies: dict[tuple[str, ...], int] | None, num_merges: int
-) -> dict[tuple[str, ...], int] | None:
+def train(word_frequencies: dict[tuple[str, ...], int] | None, num_merges: int) -> dict[tuple[str, ...], int] | None:
     """
     Create required number of new tokens by merging existing ones.
 
@@ -213,9 +203,7 @@ def train(
 
 
 
-def get_vocabulary(
-    word_frequencies: dict[tuple[str, ...], int], unknown_token: str
-) -> dict[str, int] | None:
+def get_vocabulary(word_frequencies: dict[tuple[str, ...], int], unknown_token: str) -> dict[str, int] | None:
     """
     Establish correspondence between tokens and its integer identifier.
 
@@ -255,11 +243,7 @@ def get_vocabulary(
 
 
 
-def decode(
-    encoded_text: Sequence[int] | None,
-    vocabulary: dict[str, int] | None,
-    end_of_word_token: str | None,
-) -> str | None:
+def decode(encoded_text: Sequence[int] | None,vocabulary: dict[str, int] | None,end_of_word_token: str | None,) -> str | None:
     """
     Translate encoded sequence into decoded one.
 
@@ -494,9 +478,7 @@ def collect_ngrams(text: str, order: int) -> list[tuple[str, ...]] | None:
     return [tuple(tokens[i : i + order]) for i in range(len(tokens) - order + 1)]
 
 
-def calculate_precision(
-    actual: Sequence[tuple[str, ...]], reference: Sequence[tuple[str, ...]]
-) -> float | None:
+def calculate_precision(actual: Sequence[tuple[str, ...]], reference: Sequence[tuple[str, ...]]) -> float | None:
     """
     Compare two sequences by virtue of Precision metric.
 
@@ -531,9 +513,7 @@ def calculate_precision(
 
 
 
-def calculate_geo_mean(
-    precisions: Sequence[float], max_order: int
-) -> float | None:
+def calculate_geo_mean(precisions: Sequence[float], max_order: int) -> float | None:
     """
     Compute geometric mean of sequence of values.
 
