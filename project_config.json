@@ -26,7 +26,7 @@
         },
         {
             "name": "lab_4_summarization_textrank",
-            "coverage": 90,
+            "coverage": 100,
             "stubs": [
                 "main.py",
                 "start.py"

@@ -13,8 +13,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.resolve()))
 
 project = "Лабораторный Практикум и Курс Лекций"
-copyright = "2026, Демидовский А.В. и другие"
-author = "Демидовский А.В. и другие"
+copyright = "2026, Демидовский А.В."
+author = "Демидовский А.В."
 
 extensions = [
     "sphinx_design",
@@ -33,8 +33,6 @@ intersphinx_mapping = {
 nitpick_ignore = [
     ("py:class", "ProfileType"),
     ("py:class", "optional"),
-    ("py:class", "EncodedSentence"),
-    ("py:class", "PreprocessedSentence"),
 ]
 
 exclude_patterns = ["venv/*"]
@@ -42,5 +40,3 @@ exclude_patterns = ["venv/*"]
 language = "en"
 
 html_theme = "sphinx_rtd_theme"
-
-suppress_warnings = ["autodoc.duplicate_declaration"]

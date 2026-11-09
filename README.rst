@@ -48,10 +48,10 @@
 Базовый уровень
 ~~~~~~~~~~~~~~~
 
-1. M. Lutz. `Learning Python <https://www.amazon.com/Learning-Python-5th-Mark-Lutz/dp/1449355730>`__.
-2. Хирьянов Т.Ф. Видеолекции. `Практика программирования на Python 3
+1. М. Lutz. `Learning Python <https://www.amazon.com/Learning-Python-5th-Mark-Lutz/dp/1449355730>`__.
+2. Хирьянов Т. Ф. Видеолекции. `Практика программирования на Python 3
    <https://www.youtube.com/watch?v=fgf57Sa5A-A&list=PLRDzFCPr95fLuusPXwvOPgXzBL3ZTzybY>`__. 2019.
-3. Хирьянов Т.Ф. Видеолекции. `Алгоритмы и структуры данных на
+3. Хирьянов Т. Ф. Видеолекции. `Алгоритмы и структуры данных на
    Python3 <https://www.youtube.com/watch?v=KdZ4HF1SrFs&list=PLRDzFCPr95fK7tr47883DFUbm4GeOjjc0>`__. 2017.
 4. `Официальная документация Python <https://docs.python.org/3/>`__.
 
