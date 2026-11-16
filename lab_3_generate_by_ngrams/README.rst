@@ -5,9 +5,8 @@
 .. toctree::
     :maxdepth: 1
     :titlesonly:
-    :caption: Full API
 
-    lab_3_generate_by_ngrams.api.rst
+    Full API <lab_3_generate_by_ngrams.api.rst>
 
 
 Дано

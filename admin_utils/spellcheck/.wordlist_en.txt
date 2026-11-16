@@ -22,6 +22,7 @@ encodedsentence
 entrypoint
 eos
 eow
+exc
 exe
 fakengramlanguagemodel
 freqdicttype
@@ -31,8 +32,9 @@ graphviz
 greedytextgenerator
 homebrew
 idf
+idf-весами
 idfs
-incorrectqueryerror
+incorrectargumenterror
 indicies
 init
 inout
@@ -53,6 +55,7 @@ mariantokenizer
 mle
 monkeypatch
 mse
+naivesummarizer
 ngram
 ngramlanguagemodel
 ngramlanguagemodelreader
@@ -81,15 +84,18 @@ py
 pytest
 redhat
 repo
+reportmixin
 sentenceencoder
 sentencepreprocessor
-similaritymatrix
 stopwords
 str
 submodules
+summa
 summarization
 summarizer
 textencoder
+textgraph
+textgrapherror
 textpreprocessor
 textprocessor
 textrank
