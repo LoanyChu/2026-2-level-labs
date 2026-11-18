@@ -1,6 +1,7 @@
 abstractive
 adjacencymatrixgraph
 args
+arxiv
 backoff
 backoffgenerator
 bca
@@ -22,6 +23,7 @@ encodedsentence
 entrypoint
 eos
 eow
+eq
 exc
 exe
 fakengramlanguagemodel
@@ -31,6 +33,7 @@ func
 graphviz
 greedytextgenerator
 homebrew
+https
 idf
 idf-весами
 idfs

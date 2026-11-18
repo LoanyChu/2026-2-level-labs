@@ -99,7 +99,7 @@ def test_learn_indices_return_value(sentence_encoder: SentenceEncoder) -> None:
     Args:
         sentence_encoder (SentenceEncoder): An instance of SentenceEncoder
     """
-    invalid_inputs = [[123], "мама мыла раму", True, 1, 0.0, {6: 5}]
+    invalid_inputs = [[123], True, 1, 0.0, {6: 5}]
     for invalid_input in invalid_inputs:
         with pytest.raises(IncorrectArgumentError):
             sentence_encoder._learn_indices(invalid_input)

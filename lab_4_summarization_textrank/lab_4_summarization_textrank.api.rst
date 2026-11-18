@@ -9,4 +9,4 @@ Submodules
    :undoc-members:
    :show-inheritance:
    :private-members:
-   :special-members: __init__, __str__, __len__
+   :special-members: __init__, __str__, __len__, __eq__, __hash__

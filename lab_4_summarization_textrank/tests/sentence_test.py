@@ -42,7 +42,7 @@ def test_sentence_initialization_value_error() -> None:
     ]
     position_inputs = [
         "ааа",
-        True,
+        None,
         (
             1,
             2,

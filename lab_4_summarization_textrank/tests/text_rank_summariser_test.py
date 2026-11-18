@@ -96,7 +96,7 @@ def test_text_rank_update_vertex_score_uses_documented_degree() -> None:
     graph.build([vertex, neighbor])
     summarizer = TextRankSummarizer(graph)
 
-    summarizer.update_vertex_score(vertex, [neighbor], {vertex: 1.0, neighbor: 2.0})
+    summarizer._update_vertex_score(vertex, [neighbor], {vertex: 1.0, neighbor: 2.0})
 
     assert summarizer._scores[vertex] == pytest.approx(1.85)
 

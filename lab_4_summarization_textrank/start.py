@@ -12,7 +12,7 @@ def main() -> None:
     In any case returns, None is returned
     """
     with open(
-        "lab_4_summarization_textrank/assets/texts/article_701.txt", "r", encoding="utf-8"
+        "lab_4_summarization_textrank/assets/article_701.txt", "r", encoding="utf-8"
     ) as text_file:
         text = text_file.read()
     with open(

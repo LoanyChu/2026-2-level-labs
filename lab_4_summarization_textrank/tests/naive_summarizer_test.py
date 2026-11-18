@@ -36,7 +36,7 @@ SUMMARY = "".join(EXTRACT)
 @pytest.mark.lab_4_summarization_textrank
 @pytest.mark.mark8
 @pytest.mark.mark10
-def test_graph_summarizer_initialization_value_error() -> None:
+def test_naive_summarizer_initialization_value_error() -> None:
     """
     Checks NaiveSummarizer initialization with invalid input
     """
