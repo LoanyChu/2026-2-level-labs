@@ -6,8 +6,9 @@ Beam-search and natural language generation evaluation
 
 # pylint:disable=too-few-public-methods
 
-import math
 import json
+import math
+
 
 class TextProcessor:
     """
@@ -818,9 +819,12 @@ class NGramLanguageModelReader:
         In case of corrupt input arguments or unexpected behaviour of methods used,
         None is returned.
         """
-        if not isinstance(n_gram_size, int) or isinstance(n_gram_size, bool) or n_gram_size < 2:
-            return None
-        if not isinstance(self._content, dict):
+        if (
+            not isinstance(n_gram_size, int)
+            or isinstance(n_gram_size, bool)
+            or n_gram_size < 2
+            or not isinstance(self._content, dict)
+        ):
             return None
 
         freq = self._content.get("freq")
@@ -839,11 +843,11 @@ class NGramLanguageModelReader:
                 elif char.isalpha():
                     tokens.append(char.lower())
 
-            token_ids = []
-            for token in tokens:
-                token_id = self._text_processor.get_id(token)
-                if token_id is not None:
-                    token_ids.append(token_id)
+            token_ids = [
+                token_id
+                for token in tokens
+                if (token_id := self._text_processor.get_id(token)) is not None
+            ]
 
             if len(token_ids) != n_gram_size:
                 continue
