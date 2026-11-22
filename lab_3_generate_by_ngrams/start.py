@@ -17,7 +17,7 @@ from lab_3_generate_by_ngrams.main import (
     NGramLanguageModel,
     NGramLanguageModelReader,
     TextProcessor,
-    WordProcessor
+    WordProcessor,
 )
 
 
@@ -90,7 +90,7 @@ def main() -> None:
     print("\n===BACKOFF (100 symbols, Vernon)===")
     print(f"Generated text:\n{result}")
 
-    word_processor = WordProcessor("<eos>")
+    """word_processor = WordProcessor("<eos>")
     word_encoded = word_processor.encode(text)
     assert word_encoded, "Word encoding failed"
 
@@ -127,7 +127,7 @@ def main() -> None:
     print(f"\n BEAMSEARCH (words):\n{beam_word_result}")
     print(f"\n BEAMSEARCH (letters):\n{beam_letter_result}")
     print(f"\n BACKOFF (words):\n{backoff_word_result}")
-    print(f"\n BACKOFF (letters):\n{backoff_letter_result}")
+    print(f"\n BACKOFF (letters):\n{backoff_letter_result}")"""
 
 if __name__ == "__main__":
     main()
