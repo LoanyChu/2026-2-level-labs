@@ -90,44 +90,44 @@ def main() -> None:
     print("\n===BACKOFF (100 symbols, Vernon)===")
     print(f"Generated text:\n{result}")
 
-    """word_processor = WordProcessor("<eos>")
-    word_encoded = word_processor.encode(text)
-    assert word_encoded, "Word encoding failed"
+    #word_processor = WordProcessor("<eos>")
+    #word_encoded = word_processor.encode(text)
+    #assert word_encoded, "Word encoding failed"
 
-    word_models = []
-    for size in (2, 3, 4):
-        word_model = NGramLanguageModel(word_encoded, size)
-        assert word_model.build(), f"Building word-level model of size {size} failed"
-        word_models.append(word_model)
+    #word_models = []
+    #for size in (2, 3, 4):
+        #word_model = NGramLanguageModel(word_encoded, size)
+        #assert word_model.build(), f"Building word-level model of size {size} failed"
+        #word_models.append(word_model)
 
-    prompt = "Harry looked at"
+    #prompt = "Harry looked at"
 
-    greedy_word_result = GreedyTextGenerator(word_models[2], word_processor).run(prompt, 12)
-    assert greedy_word_result, "Word-level greedy generation failed"
+    #greedy_word_result = GreedyTextGenerator(word_models[2], word_processor).run(prompt, 12)
+    #assert greedy_word_result, "Word-level greedy generation failed"
 
-    beam_word_result = BeamSearchTextGenerator(word_models[2], word_processor, 3).run(prompt, 12)
-    assert beam_word_result, "Word-level beam search generation failed"
+    #beam_word_result = BeamSearchTextGenerator(word_models[2], word_processor, 3).run(prompt, 12)
+    #assert beam_word_result, "Word-level beam search generation failed"
 
-    word_backoff = BackOffGenerator(tuple(word_models), word_processor)
-    backoff_word_result = word_backoff.run(prompt, 12)
-    assert backoff_word_result, "Word-level backoff generation failed"
+    #word_backoff = BackOffGenerator(tuple(word_models), word_processor)
+    #backoff_word_result = word_backoff.run(prompt, 12)
+    #assert backoff_word_result, "Word-level backoff generation failed"
 
-    greedy_letter_result = GreedyTextGenerator(greedy_model, text_processor).run(prompt, 60)
-    assert greedy_letter_result, "Letter-level greedy generation failed"
+    #greedy_letter_result = GreedyTextGenerator(greedy_model, text_processor).run(prompt, 60)
+    #assert greedy_letter_result, "Letter-level greedy generation failed"
 
-    beam_letter_result = BeamSearchTextGenerator(greedy_model, text_processor, 3).run(prompt, 60)
-    assert beam_letter_result, "Letter-level beam search generation failed"
+    #beam_letter_result = BeamSearchTextGenerator(greedy_model, text_processor, 3).run(prompt, 60)
+    #assert beam_letter_result, "Letter-level beam search generation failed"
 
-    backoff_letter_result = backoff_generator.run(prompt, 60)
-    assert backoff_letter_result, "Letter-level backoff generation failed"
+    #backoff_letter_result = backoff_generator.run(prompt, 60)
+    #assert backoff_letter_result, "Letter-level backoff generation failed"
 
-    print("\n===COMPARISON WORD V/S LETTER (Harry looked at)===")
-    print(f"\n GREEDY (words):\n{greedy_word_result}")
-    print(f"\n GREEDY (letters):\n{greedy_letter_result}")
-    print(f"\n BEAMSEARCH (words):\n{beam_word_result}")
-    print(f"\n BEAMSEARCH (letters):\n{beam_letter_result}")
-    print(f"\n BACKOFF (words):\n{backoff_word_result}")
-    print(f"\n BACKOFF (letters):\n{backoff_letter_result}")"""
+    #print("\n===COMPARISON WORD V/S LETTER (Harry looked at)===")
+    #print(f"\n GREEDY (words):\n{greedy_word_result}")
+    #print(f"\n GREEDY (letters):\n{greedy_letter_result}")
+    #print(f"\n BEAMSEARCH (words):\n{beam_word_result}")
+    #print(f"\n BEAMSEARCH (letters):\n{beam_letter_result}")
+    #print(f"\n BACKOFF (words):\n{backoff_word_result}")
+    #print(f"\n BACKOFF (letters):\n{backoff_letter_result}")
 
 if __name__ == "__main__":
     main()
