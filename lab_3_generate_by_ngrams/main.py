@@ -47,37 +47,18 @@ class TextProcessor:
         if not isinstance(text, str) or not text:
             return None
 
-        text_lower = text.lower()
-
-        fragments = []
-        current = []
-        for char in text_lower:
-            if char.isspace():
-                if current:
-                    fragments.append(current)
-                    current = []
-            else:
-                current.append(char)
-        if current:
-            fragments.append(current)
-
-        if not fragments:
-            return None
-
         ends_special = not text[-1].isalnum()
-
         tokens = []
-        total = len(fragments)
-        for idx, frag in enumerate(fragments):
-            letters = [c for c in frag if c.isalpha()]
-            if not letters:
-                continue
-            tokens.extend(letters)
-            if idx == total - 1:
-                if ends_special:
-                    tokens.append(self._end_of_word_token)
-            else:
+        word = []
+        for char in text.lower() + (" " if ends_special else ""):
+            if char.isalpha():
+                word.append(char)
+            elif char.isspace() and word:
+                tokens.extend(word)
                 tokens.append(self._end_of_word_token)
+                word.clear()
+        if word:
+            tokens.extend(word)
 
         if not tokens:
             return None
@@ -169,9 +150,7 @@ class TextProcessor:
         In case of corrupt input arguments or invalid argument length,
         an element is not added to storage
         """
-        if not isinstance(element, str):
-            return
-        if len(element) != 1:
+        if (not isinstance(element, str) or len(element) != 1):
             return
         if element not in self._storage:
             self._storage[element] = len(self._storage)
@@ -229,8 +208,9 @@ class TextProcessor:
         In case of corrupt input arguments, None is returned.
         In case any of methods used return None, None is returned.
         """
-        if not isinstance(corpus, tuple):
+        if not isinstance(corpus, tuple) or not corpus:
             return None
+
         result = []
         for token_id in corpus:
             token = self.get_token(token_id)
@@ -257,20 +237,24 @@ class TextProcessor:
         if not isinstance(decoded_corpus, tuple) or not decoded_corpus:
             return None
 
-        parts = []
-        for token in decoded_corpus:
+        words = []
+        current = []
+        for token in list(decoded_corpus):
             if not isinstance(token, str):
                 return None
             if token == self._end_of_word_token:
-                parts.append(" ")
+                if current:
+                    words.append("".join(current))
+                    current = []
             else:
-                parts.append(token)
+                current.append(token)
+        if current:
+            words.append("".join(current))
 
-        text = " ".join("".join(parts).split())
-        if not text:
+        if not words:
             return None
 
-        text = text[0].upper() + text[1:]
+        text = " ".join(words).capitalize()
         if not text.endswith("."):
             text += "."
         return text
@@ -407,7 +391,7 @@ class NGramLanguageModel:
         self.__n_gram_size = n_gram_size
         self._n_gram_frequencies = {}
 
-    def set_n_grams(self, frequencies: dict) -> None:
+    def get_n_gram_size(self) -> None:
         """
         Retrieve value stored in self.__n_gram_size attribute.
 
@@ -500,7 +484,7 @@ class NGramLanguageModel:
 
         In case of corrupt input arguments, None is returned
         """
-        if not isinstance(encoded_corpus, tuple):
+        if not isinstance(encoded_corpus, tuple) or not encoded_corpus:
             return None
 
         n_gram_size = self.__n_gram_size
@@ -511,9 +495,6 @@ class NGramLanguageModel:
         for i in range(len(encoded_corpus) - n_gram_size + 1):
             n_grams.append(encoded_corpus[i:i + n_gram_size])
         return tuple(n_grams)
-
-import math
-
 
 class GreedyTextGenerator:
     """
@@ -562,20 +543,11 @@ class GreedyTextGenerator:
             if not next_tokens:
                 break
 
-            # Choose token with maximum probability; tie -> larger token id.
-            best_token = None
-            best_prob = -1.0
-            for token, prob in next_tokens.items():
-                if prob > best_prob or (prob == best_prob and (best_token is None or token > best_token)):
-                    best_token = token
-                    best_prob = prob
-
-            if best_token is None:
-                break
+            best_token, _ = max(next_tokens.items(), key=lambda item: (item[1], item[0]))
             sequence = sequence + (best_token,)
 
-        result = self._text_processor.decode(sequence)
-        return result
+        return self._text_processor.decode(sequence)
+
 
 
 class BeamSearcher:
@@ -692,7 +664,7 @@ class BeamSearcher:
 
         In case of corrupt input arguments return None.
         """
-        if not isinstance(sequence_candidates, dict):
+        if not isinstance(sequence_candidates, dict) or not sequence_candidates:
             return None
 
         items = list(sequence_candidates.items())
@@ -880,18 +852,9 @@ class NGramLanguageModelReader:
             if len(tokens) != n_gram_size:
                 continue
 
-            encoded_tokens = []
-            valid = True
-            for token in tokens:
-                token_id = self._text_processor.get_id(token)
-                if token_id is None:
-                    valid = False
-                    break
-                encoded_tokens.append(token_id)
-            if not valid:
+            encoded_ngram = tuple(self._text_processor.get_id(token) for token in tokens)
+            if None in encoded_ngram:
                 continue
-
-            encoded_ngram = tuple(encoded_tokens)
             aggregated[encoded_ngram] = aggregated.get(encoded_ngram, 0) + count
 
         context_counts: dict[tuple[int, ...], float] = {}
@@ -972,20 +935,11 @@ class BackOffGenerator:
             if not next_tokens:
                 break
 
-            best_token = None
-            best_prob = -1.0
-            for token, prob in next_tokens.items():
-                if prob > best_prob or (
-                    prob == best_prob and (best_token is None or token > best_token)
-                ):
-                    best_token = token
-                    best_prob = prob
-
-            if best_token is None:
-                break
+            best_token, _ = max(next_tokens.items(), key=lambda item: (item[1], item[0]))
             sequence = sequence + (best_token,)
 
         return self._text_processor.decode(sequence)
+
 
     def _get_next_token(self, sequence_to_continue: tuple[int, ...]) -> dict[int, float] | None:
         """
