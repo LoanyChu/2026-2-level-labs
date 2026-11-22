@@ -7,6 +7,7 @@ Beam-search and natural language generation evaluation
 # pylint:disable=too-few-public-methods
 
 import math
+import json
 
 class TextProcessor:
     """
@@ -391,7 +392,7 @@ class NGramLanguageModel:
         self.__n_gram_size = n_gram_size
         self._n_gram_frequencies = {}
 
-    def get_n_gram_size(self) -> None:
+    def get_n_gram_size(self) -> int:
         """
         Retrieve value stored in self.__n_gram_size attribute.
 
@@ -597,7 +598,6 @@ class BeamSearcher:
             return []
 
         candidates = list(next_tokens.items())
-        # Sort by probability descending, then by token descending.
         candidates.sort(key=lambda item: (item[1], item[0]), reverse=True)
         return candidates[: self._beam_width]
 
@@ -623,20 +623,19 @@ class BeamSearcher:
 
         In case of corrupt input arguments or unexpected behaviour of methods used return None.
         """
-        if not isinstance(sequence, tuple):
+        if (
+            not isinstance(sequence, tuple)
+            or not isinstance(next_tokens, list)
+            or not isinstance(sequence_candidates, dict)
+        ):
             return None
-        if not isinstance(next_tokens, list):
-            return None
-        if not isinstance(sequence_candidates, dict):
-            return None
-        if not next_tokens:
-            return None
-        if len(next_tokens) > self._beam_width:
-            return None
-        if sequence not in sequence_candidates:
+        if (
+            not next_tokens
+            or len(next_tokens) > self._beam_width
+            or sequence not in sequence_candidates
+        ):
             return None
 
-        # Copy to avoid side effects.
         updated = dict(sequence_candidates)
         current_penalty = updated.pop(sequence)
 
@@ -669,16 +668,11 @@ class BeamSearcher:
 
         items = list(sequence_candidates.items())
 
-        # Stable sort: first by sequence descending, then by penalty ascending.
         items.sort(key=lambda item: item[0], reverse=True)
         items.sort(key=lambda item: item[1])
 
         pruned = items[: self._beam_width]
         return dict(pruned)
-
-
-import json
-
 
 class BeamSearchTextGenerator:
     """
@@ -824,9 +818,7 @@ class NGramLanguageModelReader:
         In case of corrupt input arguments or unexpected behaviour of methods used,
         None is returned.
         """
-        if not isinstance(n_gram_size, int) or isinstance(n_gram_size, bool):
-            return None
-        if n_gram_size < 2:
+        if not isinstance(n_gram_size, int) or isinstance(n_gram_size, bool) or n_gram_size < 2:
             return None
         if not isinstance(self._content, dict):
             return None
@@ -837,9 +829,7 @@ class NGramLanguageModelReader:
 
         aggregated: dict[tuple[int, ...], float] = {}
         for ngram_str, count in freq.items():
-            if not isinstance(ngram_str, str):
-                continue
-            if not isinstance(count, (int, float)):
+            if not isinstance(ngram_str, str) or not isinstance(count, (int, float)):
                 continue
 
             tokens = []
@@ -849,27 +839,30 @@ class NGramLanguageModelReader:
                 elif char.isalpha():
                     tokens.append(char.lower())
 
-            if len(tokens) != n_gram_size:
+            token_ids = []
+            for token in tokens:
+                token_id = self._text_processor.get_id(token)
+                if token_id is not None:
+                    token_ids.append(token_id)
+
+            if len(token_ids) != n_gram_size:
                 continue
 
-            encoded_ngram = tuple(self._text_processor.get_id(token) for token in tokens)
-            if None in encoded_ngram:
-                continue
+            encoded_ngram = tuple(token_ids)
             aggregated[encoded_ngram] = aggregated.get(encoded_ngram, 0) + count
 
         context_counts: dict[tuple[int, ...], float] = {}
         for ngram, count in aggregated.items():
-            context = ngram[:-1]
-            context_counts[context] = context_counts.get(context, 0) + count
+            context_counts[ngram[:-1]] = context_counts.get(ngram[:-1], 0) + count
 
         frequencies: dict[tuple[int, ...], float] = {}
         for ngram, count in aggregated.items():
-            context = ngram[:-1]
-            frequencies[ngram] = count / context_counts[context]
+            frequencies[ngram] = count / context_counts[ngram[:-1]]
 
         model = NGramLanguageModel(None, n_gram_size)
         model.set_n_grams(frequencies)
         return model
+
 
     def get_text_processor(self) -> TextProcessor: # type: ignore[empty-body]
         """
