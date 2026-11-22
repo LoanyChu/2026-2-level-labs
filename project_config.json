@@ -55,6 +55,9 @@
         "pr_name_example": "Laboratory work #1, Name Surname - 25FPL1",
         "pr_name_regex": "Laboratory work #\\d, \\w+ \\w+ - 2\\dFPL\\d"
     },
+    "api_check": {
+        "upstream_url": "https://github.com/fipl-hse/2026-2-level-labs-admin"
+    },
     "stubs_config": {
         "accepted_modules": {
             "pathlib": [
@@ -92,7 +95,7 @@
     "doc_sync_config": [
         {
             "source": "README.rst",
-            "target": "source/docs/labs_2026/general_info.rst"
+            "target": "source/docs/python_2026/general_info.rst"
         },
         {
             "source": "lab_1_classify_profile/__init__.py",
@@ -104,15 +107,15 @@
         },
         {
             "source": "lab_1_classify_profile/README.rst",
-            "target": "source/docs/labs_2026/labs/lab_1_classify_profile/lab_1.rst"
+            "target": "source/docs/python_2026/labs/lab_1_classify_profile/lab_1.rst"
         },
         {
             "source": "lab_1_classify_profile/lab_1_classify_profile.api.rst",
-            "target": "source/docs/labs_2026/labs/lab_1_classify_profile/lab_1_classify_profile.api.rst"
+            "target": "source/docs/python_2026/labs/lab_1_classify_profile/lab_1_classify_profile.api.rst"
         },
         {
             "source": "lab_1_classify_profile/assets/description.png",
-            "target": "source/docs/labs_2026/labs/lab_1_classify_profile/assets/description.png"
+            "target": "source/docs/python_2026/labs/lab_1_classify_profile/assets/description.png"
         },
         {
             "source": "lab_2_tokenize_by_bpe/__init__.py",
@@ -124,11 +127,11 @@
         },
         {
             "source": "lab_2_tokenize_by_bpe/README.rst",
-            "target": "source/docs/labs_2026/labs/lab_2_tokenize_by_bpe/lab_2.rst"
+            "target": "source/docs/python_2026/labs/lab_2_tokenize_by_bpe/lab_2.rst"
         },
         {
             "source": "lab_2_tokenize_by_bpe/lab_2_tokenize_by_bpe.api.rst",
-            "target": "source/docs/labs_2026/labs/lab_2_tokenize_by_bpe/lab_2_tokenize_by_bpe.api.rst"
+            "target": "source/docs/python_2026/labs/lab_2_tokenize_by_bpe/lab_2_tokenize_by_bpe.api.rst"
         },
         {
             "source": "lab_3_generate_by_ngrams/__init__.py",
@@ -140,19 +143,47 @@
         },
         {
             "source": "lab_3_generate_by_ngrams/README.rst",
-            "target": "source/docs/labs_2026/labs/lab_3_generate_by_ngrams/lab_3.rst"
+            "target": "source/docs/python_2026/labs/lab_3_generate_by_ngrams/lab_3.rst"
         },
         {
             "source": "lab_3_generate_by_ngrams/lab_3_generate_by_ngrams.api.rst",
-            "target": "source/docs/labs_2026/labs/lab_3_generate_by_ngrams/lab_3_generate_by_ngrams.api.rst"
+            "target": "source/docs/python_2026/labs/lab_3_generate_by_ngrams/lab_3_generate_by_ngrams.api.rst"
         },
         {
             "source": "lab_3_generate_by_ngrams/assets/description.png",
-            "target": "source/docs/labs_2026/labs/lab_3_generate_by_ngrams/assets/description.png"
+            "target": "source/docs/python_2026/labs/lab_3_generate_by_ngrams/assets/description.png"
         },
         {
             "source": "lab_3_generate_by_ngrams/assets/beam_search_example.png",
-            "target": "source/docs/labs_2026/labs/lab_3_generate_by_ngrams/assets/beam_search_example.png"
+            "target": "source/docs/python_2026/labs/lab_3_generate_by_ngrams/assets/beam_search_example.png"
+        },
+        {
+            "source": "lab_4_summarization_textrank/__init__.py",
+            "target": "lab_4_summarization_textrank/__init__.py"
+        },
+        {
+            "source": "lab_4_summarization_textrank/main_stub.py",
+            "target": "lab_4_summarization_textrank/main.py"
+        },
+        {
+            "source": "lab_4_summarization_textrank/README.rst",
+            "target": "source/docs/python_2026/labs/lab_4_summarization_textrank/lab_4.rst"
+        },
+        {
+            "source": "lab_4_summarization_textrank/lab_4_summarization_textrank.api.rst",
+            "target": "source/docs/python_2026/labs/lab_4_summarization_textrank/lab_4_summarization_textrank.api.rst"
+        },
+        {
+            "source": "lab_4_summarization_textrank/assets/task_description_images/directed_undirected_graph.jpeg",
+            "target": "source/docs/python_2026/labs/lab_4_summarization_textrank/assets/directed_undirected_graph.jpeg"
+        },
+        {
+            "source": "lab_4_summarization_textrank/assets/task_description_images/graph.jpeg",
+            "target": "source/docs/python_2026/labs/lab_4_summarization_textrank/assets/graph.jpeg"
+        },
+        {
+            "source": "lab_4_summarization_textrank/assets/task_description_images/weighted_graph.jpeg",
+            "target": "source/docs/python_2026/labs/lab_4_summarization_textrank/assets/weighted_graph.jpeg"
         }
     ],
     "prohibited_modules": [

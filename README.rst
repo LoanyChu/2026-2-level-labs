@@ -36,11 +36,16 @@
    1. Контрольная отсечка: **02 ноября**
    2. Дедлайн: **16 ноября**
 
+1. `Лабораторная работа №4. Разработка системы автоматической суммаризации текстов <https://github.com/fipl-hse/2026-2-level-labs/tree/main/lab_4_summarization_textrank>`__
+
+   1. Контрольная отсечка: **23 ноября**
+   2. Дедлайн: **7 декабря**
+
 История занятий
 ---------------
 
 Конспект лекций и материалы для пройденных занятий Вы найдете
-`на сайте <https://fipl-hse.github.io/docs/labs_2026/lectures_content.html>`__.
+`на сайте <https://fipl-hse.github.io/docs/python_2026/lectures_content.html>`__.
 
 Литература
 ----------
@@ -69,7 +74,7 @@
 -------
 
 1. `Таблица успеваемости <https://docs.google.com/spreadsheets/d/1t5A5ZFMJelFWN35U2_LOlDXWBg-rT72usA5SiHyvnnU/edit?usp=sharing>`__
-2. `Сайт дисциплины <https://fipl-hse.github.io/docs/labs_2026/index.html>`__ с описанием лабораторных работ и полезными материалами
+2. `Сайт дисциплины <https://fipl-hse.github.io/docs/python_2026/index.html>`__ с описанием лабораторных работ и полезными материалами
 3. `Регламент выполнения лабораторных работ <https://fipl-hse.github.io/docs/useful_docs/handover_rules.html>`__
 4. `Инструкция по подготовке компьютера к работе над заданиями курса <https://fipl-hse.github.io/docs/useful_docs/starting_guide.html>`__
 5. `Инструкция по запуску тестов <https://fipl-hse.github.io/docs/useful_docs/tests.html>`__

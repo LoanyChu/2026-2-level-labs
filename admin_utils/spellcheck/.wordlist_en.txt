@@ -1,6 +1,7 @@
 abstractive
 adjacencymatrixgraph
 args
+arxiv
 backoff
 backoffgenerator
 bca
@@ -22,6 +23,8 @@ encodedsentence
 entrypoint
 eos
 eow
+eq
+exc
 exe
 fakengramlanguagemodel
 freqdicttype
@@ -30,9 +33,11 @@ func
 graphviz
 greedytextgenerator
 homebrew
+https
 idf
+idf-весами
 idfs
-incorrectqueryerror
+incorrectargumenterror
 indicies
 init
 inout
@@ -53,6 +58,7 @@ mariantokenizer
 mle
 monkeypatch
 mse
+naivesummarizer
 ngram
 ngramlanguagemodel
 ngramlanguagemodelreader
@@ -81,15 +87,18 @@ py
 pytest
 redhat
 repo
+reportmixin
 sentenceencoder
 sentencepreprocessor
-similaritymatrix
 stopwords
 str
 submodules
+summa
 summarization
 summarizer
 textencoder
+textgraph
+textgrapherror
 textpreprocessor
 textprocessor
 textrank
